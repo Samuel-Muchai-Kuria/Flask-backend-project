@@ -1,0 +1,124 @@
+/* home.css */
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6fb;
+    margin: 0;
+    padding: 0;
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-container {
+    max-width: 400px;
+    margin: 6rem auto 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 2.5rem 2rem 2rem 2rem;
+    text-align: center;
+}
+
+.banner {
+    background-color: #68e6f7;
+    /* width: 100%; */
+    height: 150px;
+    border-radius: 22px;
+    margin-top: 1rem;
+    margin-inline: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.banner h1 {
+    color: #4f8cff;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    justify-content: center;
+}
+
+.content {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.content p {
+    color: #2f4fdd;
+    margin: 0.5rem 0;
+    line-height: 1.6;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.links-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.links {
+    background-color: #b0cbe9;
+    margin-top: 1rem;
+    width: 33.3%;
+    display: flex;
+    padding: 1.5rem 1.5rem;
+    border-radius: 12px;
+    justify-content: center;
+}
+
+.links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin: 1rem 0;
+    text-align: center;
+  
+}
+
+a {
+    display: inline-block;
+    background: linear-gradient(90deg, #4f8cff 0%, #6ed6ff 100%);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.7rem 2.2rem;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 2px 8px rgba(79, 140, 255, 0.08);
+    font-size: 1rem;
+}
+
+a:hover {
+    background: linear-gradient(90deg, #2b6cb0 0%, #4f8cff 100%);
+    color: #eaf2fb;
+}
+
+@media (max-width: 500px) {
+    .main-container {
+        padding: 1.2rem 0.5rem;
+        margin-top: 2rem;
+    }
+    h1 {
+        font-size: 1.3rem;
+    }
+}
+
+
+
+footer {
+    margin-top: auto;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 1rem;
+    color: #666;
+}

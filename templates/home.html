@@ -3,13 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
     <title>Home page</title>
 </head>
 <body>
-    <h1>Welcome to the Flask API!</h1>
-    <p>Login to access the API</p>
-    <ul>
-        <li><a href="{{url_for('login')}}">Login</a></li>
-        <li><a href="{{url_for('register')}}">Register</a></li>
+    <div class="banner">
+        <h1>Welcome to the Home Page</h1>
+    </div>
+    <div class="content">
+        <p><strong>Welcome! This is the home page of the application.</strong></p>
+    </div>
+    <div class="links-container">
+        <div class="links">
+            <ul>
+                <li id="login-link"><a href="{{url_for('login')}}">Login</a></li>
+                <li id="register-link"><a href="{{url_for('register')}}">Register</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Samuel Muchai Kuria</p>
+    </footer>
 </body>
 </html>

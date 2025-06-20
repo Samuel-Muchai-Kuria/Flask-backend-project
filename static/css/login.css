@@ -1,0 +1,137 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6fb;
+    margin: 0;
+    padding: 0;
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+    color: #4f8cff;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+form {
+    background: #fff;
+    max-width: 370px;
+    margin: 0 auto;
+    padding: 2.2rem 2rem 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+form div {
+    text-align: left;
+}
+
+label {
+    color: #4f8cff;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    display: inline-block;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid #cbe6ff;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-top: 0.2rem;
+    background: #f4f6fb;
+    transition: border 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border: 1.5px solid #4f8cff;
+    outline: none;
+    background: #eaf2fb;
+}
+
+input[type="submit"], button[type="submit"] {
+    background: linear-gradient(90deg, #4f8cff 0%, #6ed6ff 100%);
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    padding: 0.7rem 2.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(79, 140, 255, 0.08);
+    transition: background 0.2s, color 0.2s;
+}
+
+input[type="submit"]:hover, button[type="submit"]:hover {
+    background: linear-gradient(90deg, #2b6cb0 0%, #4f8cff 100%);
+    color: #eaf2fb;
+}
+
+a {
+    display: inline-block;
+    background: linear-gradient(90deg, #4f8cff 0%, #6ed6ff 100%);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 2px 8px rgba(79, 140, 255, 0.08);
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+a:hover {
+    background: linear-gradient(90deg, #2b6cb0 0%, #4f8cff 100%);
+    color: #eaf2fb;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+footer a {
+    background: none;
+    color: #4f8cff;
+    box-shadow: none;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: #2b6cb0;
+    background: none;
+}
+
+span[style*="color: red;"] {
+    font-size: 0.95rem;
+    margin-top: 0.2rem;
+    display: inline-block;
+}
+
+@media (max-width: 500px) {
+    form {
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+        max-width: 98vw;
+    }
+    h1 {
+        font-size: 1.3rem;
+        margin-top: 1.5rem;
+    }
+}

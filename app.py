@@ -5,7 +5,8 @@ from  wtforms import  StringField, PasswordField, validators, SubmitField
 from wtforms.validators import DataRequired, length ,ValidationError
 from flask_wtf import FlaskForm
 from flask_bcrypt import Bcrypt
-
+import json
+import requests
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
@@ -18,6 +19,19 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
 
+
+# function to get meme from api
+def get_meme():
+    url = f"https://meme-api.com/gimme/wholesomememes"
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        meme_large= data.get('preview', '')[0]
+        subreddit = data.get('subreddit', '')
+        title = data.get('title', '')
+        return meme_large, subreddit, title
+    else:
+        return None
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -73,7 +87,8 @@ def logout():
 @app.route('/dashboard', methods=['GET', 'POST'])
 @login_required
 def dashboard():
-    return render_template('dashboard.html')
+    meme_large, subreddit, title = get_meme()
+    return render_template('dashboard.html', meme_large=meme_large, subreddit=subreddit, title=title, current_user=current_user)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
