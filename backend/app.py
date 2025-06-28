@@ -5,7 +5,6 @@ from  wtforms import  StringField, PasswordField, validators, SubmitField
 from wtforms.validators import DataRequired, length ,ValidationError
 from flask_wtf import FlaskForm
 from flask_bcrypt import Bcrypt
-import json
 import requests
 
 app = Flask(__name__)
