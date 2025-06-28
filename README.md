@@ -1,5 +1,14 @@
-# 🧠 Flask Auth & Meme Generator App
+## 🧼 Flask Fullstack App (No JS)
 
+This is a simple full-stack web application built with Flask. It includes user authentication and renders all pages using server-side HTML templates.
+
+### 🔗 Live Deployment
+[View on Render](https://flask-backend-project-95yk.onrender.com/)
+
+### 🔧 Features
+- User registration and login
+- Password hashing
+- SQLite database with SQLAlchemy
 A Flask-based web application with secure user authentication and dynamic meme generation on login. User data is stored in an SQL database, and the frontend is built with HTML, CSS, and JavaScript.
 
 > 🚧 **Note:** This project is currently a work in progress.
