@@ -65,7 +65,7 @@ class LoginForm(FlaskForm):
 @app.route('/')
 def home():
 
-    return render_template('templates/home.html')
+    return render_template('home.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -75,7 +75,7 @@ def login():
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user)
             return redirect(url_for('dashboard'))
-    return render_template('templates/login.html', form=form)
+    return render_template('login.html', form=form)
 
 @app.route('/logout')
 @login_required
@@ -87,7 +87,7 @@ def logout():
 @login_required
 def dashboard():
     meme_large, subreddit, title = get_meme()
-    return render_template('templates/dashboard.html', meme_large=meme_large, subreddit=subreddit, title=title, current_user=current_user)
+    return render_template('dashboard.html', meme_large=meme_large, subreddit=subreddit, title=title, current_user=current_user)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -100,7 +100,7 @@ def register():
         # print('User registered successfully!')
         return redirect(url_for('login'))
     
-    return render_template('templates/register.html', form=form)
+    return render_template('register.html', form=form)
 
 if __name__ == '__main__':
     app.run(debug=True)
