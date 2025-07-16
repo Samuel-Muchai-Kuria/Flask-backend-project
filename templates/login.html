@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <title>Login page</title>
+</head>
+<body>
+    <h1>Login page</h1>
+    <a href="{{ url_for('register') }}">Don't have an account? Register here</a>
+    
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+
+        <div>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}<br>
+            {% for error in form.username.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+
+        <div>
+            {{ form.password.label }}<br>
+            <div style="position: relative;">
+                {{ form.password(size=32, id="password", class="form-control") }}
+                <button type="button" onclick="togglePassword()" 
+                        style="position: absolute; right: 10px; top: 50%; border-color: darkgray;  transform: translateY(-50%); border: none;">
+                    <img src="{{ url_for('static', filename='images/eye_password_hide.png') }}" alt="Toggle Password Visibility" style="width: 20px; height: 20px;">
+                </button>
+            </div>
+            {% for error in form.password.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+
+    <footer><a href="{{ url_for('home') }}">Back to Home</a></footer>
+
+    <script>
+        function togglePassword() {
+            const pwd = document.getElementById("password");
+            const type = pwd.getAttribute("type") === "password" ? "text" : "password";
+            pwd.setAttribute("type", type);
+        }
+    </script>
+</body>
+</html>

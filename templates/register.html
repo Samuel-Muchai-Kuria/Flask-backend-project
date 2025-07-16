@@ -22,7 +22,13 @@
 
         <div>
             {{ form.password.label }}<br>
-            {{ form.password(size=32) }}<br>
+            <div style="position: relative;">
+                {{ form.password(size=32, id="password", class="form-control") }}
+                <button type="button" onclick="togglePassword()" 
+                        style="position: absolute; right: 10px; top: 50%; border-color: darkgray;  transform: translateY(-50%); border: none;">
+                    <img src="{{ url_for('static', filename='images/eye_password_hide.png') }}" alt="Toggle Password Visibility" style="width: 20px; height: 20px;">
+                </button>
+            </div>
             {% for error in form.password.errors %}
                 <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
@@ -33,5 +39,13 @@
         </div>
     </form>
     <footer><a href="{{url_for('home')}}">Back to Home</a></footer>
+
+    <script>
+        function togglePassword() {
+            const pwd = document.getElementById("password");
+            const type = pwd.getAttribute("type") === "password" ? "text" : "password";
+            pwd.setAttribute("type", type);
+        }
+    </script>
 </body>
 </html>

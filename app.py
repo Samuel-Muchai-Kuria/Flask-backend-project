@@ -6,11 +6,20 @@ from wtforms.validators import DataRequired, length ,ValidationError
 from flask_wtf import FlaskForm
 from flask_bcrypt import Bcrypt
 import requests
+import os
+from dotenv import load_dotenv
+from datetime import datetime
+
+load_dotenv()
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
-app.config['SECRET_KEY'] = 'thisisasecretkey'
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'instance', 'database.db')
+# print the path to the database file
+print("Database path:", app.config['SQLALCHEMY_DATABASE_URI'])
+
+app.config['SECRET_KEY'] = os.getenv('secret_key')
 db = SQLAlchemy(app)
 
 
@@ -25,9 +34,12 @@ def get_meme():
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
-        meme_large= data.get('preview', '')[0]
+        # print("Meme data:", data)  # Debugging line to check the response structure
+        meme_large= data.get('url', '')
         subreddit = data.get('subreddit', '')
         title = data.get('title', '')
+        print("meme data collected")
+
         return meme_large, subreddit, title
     else:
         return None
@@ -99,7 +111,7 @@ def register():
         db.session.commit()
         print('User registered successfully!')
         return redirect(url_for('login'))
-    
+
     return render_template('register.html', form=form)
 
 if __name__ == '__main__':
