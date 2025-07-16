@@ -1,4 +1,4 @@
-## 🧼 Flask Fullstack App (No JS)
+## 🧼 Flask Fullstack App
 
 This is a simple full-stack web application built with Flask. It includes user authentication and renders all pages using server-side HTML templates.
 
